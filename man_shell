@@ -1,0 +1,83 @@
+.Dd 04/17/2023
+.Dt SIMPLE_SHELL 1
+.Os
+.Sh NAME
+.Nm simple_shell
+.Nd A lightweight UNIX-style command interpreter written in C
+
+.Sh SYNOPSIS
+.Nm
+.Op command
+
+.Sh DESCRIPTION
+The
+.Nm
+program is a minimal UNIX command interpreter that executes basic shell commands.
+It was originally developed as part of the Holberton School low-level programming curriculum and later migrated for continued learning and portfolio development.
+
+The shell provides an interactive command prompt allowing users to enter executable commands or scripts.
+
+.Sh FEATURES
+.Bl -bullet
+.It Execute basic shell commands (e.g. ls, pwd, echo)
+.It Command path resolution
+.It Basic built-in commands
+.It Command history navigation (limited)
+.It Semicolon command chaining
+.It Error handling and exit status reporting
+.El
+
+.Sh LIMITATIONS
+This shell is a learning project and does not implement full POSIX shell functionality.
+
+Unsupported features include:
+.Bl -bullet
+.It Pipes (|)
+.It Redirection (> < <<)
+.It Background execution (&)
+.It Aliases
+.It Advanced environment variable expansion
+.It Job control
+.El
+
+Behavior may vary for complex arguments or special characters.  
+The program is not intended for production environments and has not undergone full stress or security testing.
+
+.Sh RETURN VALUES
+.Bl -tag -width Ds
+.It 0
+Successful completion
+.It >0
+An error occurred
+.El
+
+.Sh EXAMPLES
+Run the shell:
+.Bd -literal
+./simple_shell
+.Ed
+
+Run commands:
+.Bd -literal
+ls -l
+cd /path/to/dir
+./script.sh
+.Ed
+
+.Sh CONTROLS
+.Bl -tag -width Ds
+.It CTRL-D
+Exit shell
+.It CTRL-C
+Interrupt current process
+.It Up / Down arrows
+Navigate command history (limited)
+.El
+
+.Sh AUTHORS
+.An Joshua Riggs
+and
+.An Ashly Riggs
+
+.Sh NOTES
+Migrated from academic repository to professional development account for ongoing enhancement and documentation.
