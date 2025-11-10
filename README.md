@@ -1,99 +1,116 @@
-# Simple Shell
+Simple Shell
 
-A lightweight Unix-style command interpreter written in C.  
-Originally developed as part of the Holberton School low-level programming curriculum and later migrated to this profile for portfolio archiving and ongoing improvements.
+A lightweight UNIX-style command interpreter written in C.
+Originally developed as part of the Holberton School curriculum and migrated here for continued development and portfolio demonstration.
 
-This project demonstrates core systems programming concepts including process creation, command parsing, memory management, and environment handling.
+This version implements a basic shell loop capable of reading commands, executing them, and exiting gracefully. Over the next week, the project will progress toward a more complete shell implementation.
 
----
+ Current Features
 
-## Features
+Interactive prompt: ($)
 
-- Execute basic shell commands  
-- Handle command paths & built-ins  
-- Read and interpret user input  
-- Support for semicolon command chaining  
-- Error handling & exit status behavior  
-- Shell loop using `fork/exec/wait` and low-level read/write syscalls
+Executes commands through system()
 
----
+Handles user input with buffer & newline trimming
 
-## Installation
+Detects interactive vs non-interactive mode
 
-```bash
-# Clone the repo
-git clone https://github.com/<your-username>/simple_shell.git
-cd simple_shell
+Graceful exit on:
 
-# Compile
-gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
+exit
 
-# Run
-./simple_shell
- Usage
+Ctrl+D (EOF)
+
+Displays a custom error for unknown commands
+
+Persistent loop until exit requested
+
+This is a Stage 1 shell: it runs commands, loops, exits properly, and handles input cleanly.
+
+ Example
 
 Start the shell:
 
 ./simple_shell
 
 
-Then enter commands like:
+Run commands:
 
 ls
 pwd
-echo "Hello, world"
+echo "Hello"
 
 
-Keyboard shortcuts:
+Exit:
 
-↑ / ↓ – command history (limited)
-
-CTRL-D – exit
-
-CTRL-C – interrupt current command
-
-Project Scope & Limitations
-
-This shell was created as a learning exercise.
-It does not currently support:
-
-Pipes (|), redirection (>, <<), or background &
-
-Aliases
-
-Job control
-
-Full environment variable expansion
-
-This behavior mirrors early Bourne-like shells and is intended to demonstrate foundational systems concepts.
-
-Future improvements may include:
-
-Pipe chaining
-
-File redirection support
-
-Built-in command expansion
-
-Extended environment manipulation
-
-Contributing
-
-This is an educational project, but suggestions and improvements are welcome.
-
-To contribute:
-
-fork → branch → commit → pull request
+exit
 
 
-Issues may be opened for bugs, code improvements, or feature suggestions.
+Or press Ctrl+D.
+
+ Current Limitations
+
+This is an intentionally minimal shell for learning and demonstration:
+
+Feature	Status
+system() used for execution	 Currently implemented
+fork/execve/wait execution	 Not yet
+PATH searching	 Not yet
+Built-ins beyond exit	 Not yet
+Semicolon command chaining	 Not yet
+Redirection & pipes	 Not yet
+Memory management w/ free()	In progress later
+Advanced error formatting- Upcoming
+Roadmap (Next Week Development Plan)
+
+The following features will be implemented in phases (commits will reflect each milestone):
+
+Milestone	Target Feature
+ Phase 1	Replace system() with fork(), execve(), wait()
+ Phase 2	PATH handling
+ Phase 3	Basic built-ins (exit, env, cd)
+ Phase 4	Semicolon-separated commands
+ Phase 5	Error formatting identical to /bin/sh
+ Phase 6	Memory management / free() discipline
+ Phase 7	Optional: redirection & pipes
+
+Progress logging will appear in commit messages & README updates.
+
+Compilation
+gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
+
+Usage
+./simple_shell
+
+
+Prompt appears:
+
+($)
+
+
+Enter commands, or type exit.
+
+File Structure (current)
+simple_shell/
+├── README.md
+├── man_1_simple_shell
+└── simple_shell.c    (coming soon)
 
 Authors
 
-Joshua Riggs — Developer
-Ashly Riggs — Collaborator
-Holberton School Software Engineering Program
+Joshua Riggs
+Ashly Riggs
 
-Footnote
+Notes
 
-Migrated from academic repo for portfolio completeness and to demonstrate version control beyond school environment. Continuing incremental improvements and documentation updates.
+This project began as an academic exercise and is now being actively developed and improved as part of a professional engineering portfolio. Future commits will demonstrate incremental system-level improvements and shell behavior enhancements.
+
+Want to Help?
+
+Educational project — contributions and suggestions welcome.
+Please open an issue or pull request.
+
+Status
+
+Current stage: Basic interactive mini-shell
+Development style: Incremental upgrades + commit logs over time
